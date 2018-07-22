@@ -1,0 +1,106 @@
+/**
+ * Variables
+ *   1. Colors
+ *   2. Units, sections, etc.
+ *   3. Screen
+ *   4. Bootstrap overrides
+ * _________________________________*/
+
+/**
+ * 1. Colors
+ * _________________________________*/
+
+ // Base colors
+$white: white;
+$black: black;
+$cyan: #2baadd;
+$midnight: #001c29;
+$grey: #646464;
+$lt-grey: #6e6d6e;
+$aluminum: #b7b7b7;
+$ivory: #d8d8d8;
+$navy: #011f39;
+$pine: #002232;
+
+$selection: $white;
+$selection-bg: $cyan;
+
+// Official social colors
+$facebook: #3461a1;
+$twitter: #28aae1;
+$google: #d44a2c;
+
+// Danger
+$danger-color: $white;
+$danger-background: #e93530;
+$danger-border: #e93530;
+
+// Theme colors
+$text-dark: #424242;
+$text-gray: $grey;
+$primary-color: #013249;
+$secondary-color: $cyan;
+
+/**
+ * 2. Units, sections, etc.
+ * _________________________________*/
+
+// Aspect Ratios
+$ratio_3_2: 66.67%;
+$ratio_16_9: 56.25%;
+$ratio_4_3: 75%;
+$ratio_2_1: 50%;
+
+// Widths
+$width-1-1: 100%;
+$width-1-2: 50%;
+$width-1-3: 33.3333333%;
+$width-1-4: 25%;
+$width-1-5: 20%;
+$width-1-6: 16.6666667%;
+
+
+/**
+ * 3. Screen
+ * _________________________________*/
+
+// Media queries
+$screen-xl:  1600px;
+$screen-lg:  1200px;
+$screen-md:  992px;
+$screen-sm:  768px;
+$screen-xs:  480px;
+$screen-xxs: 400px;
+
+// Media query variables
+$screen-xl-maximum:  $screen-xl - 1;
+$screen-lg-maximum:  $screen-lg - 1;
+$screen-md-maximum:  $screen-md - 1;
+$screen-sm-maximum:  $screen-sm - 1;
+$screen-xs-maximum:  $screen-xs - 1;
+$screen-xxs-maximum: $screen-xxs - 1;
+
+$screen-sm-min: $screen-sm !default;
+$screen-md-min: $screen-md !default;
+$screen-lg-min: $screen-lg !default;
+
+// The point at which the navbar becomes uncollapsed
+// Choose from any of the "Media query variables"
+$screen-nav-mobile: $screen-md-maximum;
+
+// The point at which the navbar becomes uncollapsed (do not modify)
+$grid-float-breakpoint: $screen-nav-mobile + 1;
+
+// Grid
+$grid-columns:      12;
+$grid-gutter-width: 30px;
+
+// Container widths
+$container-sm:    ($screen-sm - $grid-gutter-width);
+$container-md:    ($screen-md - $grid-gutter-width);
+$container-lg:    ($screen-lg - $grid-gutter-width);
+
+// Links
+$link-color: $danger-background;
+$link-hover-color: $cyan;
+$link-hover-decoration: none;

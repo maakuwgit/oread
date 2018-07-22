@@ -1,0 +1,235 @@
+/**
+ * image-slider Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-image-slider {
+  flex-direction: column;
+
+  .image-slider__slides {
+    position: relative;
+    width: 100%;
+    height: 50vw;
+    max-height: 50vw;
+    z-index: 0;
+
+    @media (min-width: $screen-sm-min) {
+      height: calc( #{$container-sm}/2 );
+    }
+    @media (min-width: $screen-md-min) {
+      height: calc( #{$container-md}/2 );
+    }
+    @media (min-width: $screen-lg-min) {
+      height: calc( #{$container-lg}/2 );
+    }
+  }
+
+  .image-slider__slides__slide,
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+  .container {
+    position: relative;
+  }
+
+  .image-slider__header,
+  .image-slider__footer {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .image-slider__header {
+    justify-content: flex-start;
+  }
+
+  .image-slider__footer {
+    justify-content: flex-end;
+    margin-top: 22px;
+  }
+
+  .image-slider__header__text {
+    display: inline-flex;
+    text-align: center;
+    flex: 0 0.5 auto;
+    margin-top: 70px;
+    margin-bottom: 31px;
+    color: $grey;
+    text-transform: uppercase;
+    @include font-size(26);
+    line-height: 32px;
+    line-height: 1.23076923076923;
+    letter-spacing: 5px;
+  }
+
+  .image-slider__slides__slide {
+    position: absolute !important;//Otherwise Slick makes it relative and it disappears into the overflow
+    left: 0 !important;//Else Slick forces it left -1* the width of the slide
+    width: 100%;
+    height: 100%;
+
+  }
+
+  .image-slider__slick-prev,
+  .image-slider__slick-next {
+    border: none;
+    @include font-size(18);
+    line-height: 19px;
+    line-height: 1.05555555555556;
+    letter-spacing: 3.38px;
+    color: $grey;
+    text-transform: uppercase;
+    background-color: transparent;
+
+    &:hover {
+      color: $secondary-color;
+    }
+
+  }
+
+  .image-slider__slick-prev {
+
+    &:after {
+      content: '|';
+      padding-left: 10px;
+      color: $grey;
+    }
+  }
+
+  .slick-dots {
+    display: flex;
+    position: absolute;
+    left: $grid-gutter-width/2;
+    margin: auto;
+    list-style: none;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    button {
+      overflow: hidden;
+      width: 16px;
+      height: 16px;
+      margin-right: 15px;
+      border-radius: 200px;
+      font-size: 0;
+      line-height: 0;
+      border: solid 1px #979797;
+      background-color: transparent;
+    }
+
+    li {
+      margin: auto;
+
+      &.slick-active {
+
+        button {
+          border: solid 1px $ivory;
+          background-color: $ivory;
+        }
+
+      }
+
+      &:hover {
+
+        button {
+          border: solid 1px $secondary-color;
+          background-color: $secondary-color;
+        }
+
+      }
+
+    }
+
+  }
+
+  .slick-track, .slick-list {
+    position: relative;
+    z-index: 0;
+    height: inherit;
+    max-height: inherit;
+  }
+
+  .image-slider__big_text {
+    max-width: 456px;
+    margin: auto auto 31px 25%;
+    @include font-size(46);
+    font-weight: 300;
+    line-height: 48px;
+    line-height: 1.04347826086957;
+
+    &:before {
+      content: '“';
+      position: absolute;
+      opacity: 0.6;
+      margin-left: -90px;
+      font-size: 200px;
+      line-height: 154px;
+    }
+
+  }
+
+  .image-slider__content {
+
+    * {
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    p {
+      margin-top: 0;
+      @include font-size(16);
+      line-height: 28px;
+      line-height: 1.75;
+      &.large {
+        @extend %text-large;
+      }
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+
+  }
+
+  .image-slider__slides__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: stretch;
+    height: inherit;
+    max-height: inherit;
+  }
+
+  .image-slider__image-left,
+  .image-slider__image-right {
+    width: 50%;
+    flex: 0 0.5 auto;
+    display: flex;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include screen-md {
+      background-size: 100% auto;
+      background-position: center;
+    }
+
+    img {
+      opacity: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+}

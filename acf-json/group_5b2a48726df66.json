@@ -1,0 +1,133 @@
+{
+    "key": "group_5b2a48726df66",
+    "title": "Left \/ Right with Hover",
+    "fields": [
+        {
+            "key": "field_5b2a487273c08",
+            "label": "Layout",
+            "name": "lr_w_hover_layout",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Image | Content",
+                "right": "Content | Image"
+            },
+            "allow_null": 0,
+            "default_value": "left",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_5b2a487273ca3",
+            "label": "Image",
+            "name": "lr_w_hover_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5b2a489aaa08c",
+            "label": "Hover Image",
+            "name": "lr_w_hover_hover_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5b2a487273c58",
+            "label": "Content",
+            "name": "lr_w_hover_content",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "templates\/template-home.php"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "templates\/template-form-template.php"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "templates\/template-contact.php"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "default"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "templates\/template-review.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1529943541
+}

@@ -1,0 +1,63 @@
+/**
+ * call-to-action Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-call-to-action {
+  display: flex;
+  justify-content: center;
+  background-color: $white;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+  }
+
+  .logo-svg_centered {
+    margin-top: 115px;
+  }
+
+  .logo__vector__text {
+    display: none;
+  }
+
+  .logo__vector__icon {
+    transform: scale(1.4) translateX(18%);
+  }
+
+  .cta__section_title {
+    max-width: 750px;
+    @include font-size(45);
+    line-height: 55px;
+    line-height: 1.22222222222222;
+    color: $primary-color;
+    text-align: center;
+  }
+
+  .cta__content {
+    max-width: 750px;
+    p {
+      margin-bottom: 36px;
+      color: $grey;
+      @include font-size(16);
+      line-height: 28px;
+      line-height: 1.75;
+      &:last-of-type {
+        margin-bottom: 150px;
+      }
+    }
+    .btn {
+      @include font-size(16);
+      font-weight: 300;
+      line-height: 19px;
+      line-height: 1.1875;
+    }
+  }
+
+}

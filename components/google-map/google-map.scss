@@ -1,0 +1,117 @@
+/**
+ * Google Map Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-google-map {
+  position: relative;
+  display: flex;
+
+  .google-map__wrapper {
+    min-height: 100vh;
+    max-width: 1170px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 74px auto;
+
+    > div {
+      display: flex;
+      align-items: center;
+      height: inherit;
+      min-height: 622px;
+      padding: 0;
+      background-color: $ivory;
+      overflow: hidden;
+
+      @include screen-md {
+        height: 50vh;
+        min-height: 240px;
+      }
+    }
+  }
+}
+
+.google-map__infowindow {
+  position: absolute;
+  top: 74px;
+  bottom: 74px;
+  width: calc( 50% + 96px );
+  min-width: 300px;
+  max-width: 445px;
+  max-height: 455px;
+  flex: 0 0.5 auto;
+  margin: 74px auto 74px 74px;
+  padding: 48px;
+  background-color: $danger-background;
+  box-shadow: 5px 6px 23px 0 rgba($black,0.29);
+
+  &.google-map__addresses {
+    display: none;
+
+    > * {
+      display: none;
+    }
+
+  }
+
+  .btn {
+    display: inline-flex;
+    order: 6;
+    align-self: flex-start;
+  }
+
+}
+
+.google-map__infowindow-content {
+  display: flex;
+  flex-direction: column;
+  color: $white;
+}
+
+.google-map__infowindow-content__supertitle {
+  order: 1;
+  margin-left: 0;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  @include font-size(16);
+  line-height: 19;
+  line-height: 1.1875;
+}
+
+.google-map__infowindow-content__title {
+  order: 2;
+  margin-left: 0;
+  margin-bottom: 32px;
+  @include font-size(30);
+  font-weight: 300;
+  line-height: 37;
+  line-height: 1.85;
+}
+
+.google-map__infowindow-content__address {
+  order: 3;
+}
+
+.google-map__infowindow-content__phone {
+  display: inline-flex;
+  order: 4;
+  color: currentColor;
+
+  &:not([href*="tel:"]):hover {
+    text-decoration: underline;
+  }
+
+}
+
+.google-map__infowindow-content__hours {
+  order: 5;
+  margin-bottom: 26px;
+}
+
+.google-map__infowindow-content__directions {
+  order: 6;
+}

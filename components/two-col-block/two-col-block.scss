@@ -1,0 +1,76 @@
+/**
+ * two-col-block Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+$big_gutter: calc( 8.33333334% + ( #{$grid_gutter_width} * 1.5) );
+$small_gutter: 4.16666665%;
+
+.ll-two-col-block {
+  display: flex;
+  justify-content: center;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: stretch;
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .ll-two-col-block__block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: flex-start;
+    flex: 0 0.5 auto;
+    max-width: 50%;
+    margin-left: 0;
+    padding: 140px #{$big_gutter} 149px #{$small_gutter};
+    color: $white;
+    background-color: $primary-color;
+
+    .ll-two-col-block__block__header {
+      margin-bottom: 53px;
+      margin-left: 0;
+      @include font-size(45);
+      line-height: 27px;
+      line-height: 0.6;
+      font-weight: 500;
+    }
+
+    p, ul {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      @include font-size(16);
+      line-height: 28px;
+      line-height: 1.75;
+      &.large {
+        @include font-size(18);
+        font-weight: 500;
+        line-height: 28px;
+        line-height: 1.55555555555556;
+      }
+    }
+
+    &:nth-child(2) {
+      padding-left: $big_gutter;
+      padding-right: $small_gutter;
+      background-color: $danger-background;
+    }
+
+  }
+}

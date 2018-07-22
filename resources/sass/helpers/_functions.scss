@@ -1,0 +1,19 @@
+/**
+ * Functions
+ */
+
+/**
+ * z-index function
+ * See "$z-layers" map in _maps.scss for layers
+ * Example use:
+ *   z-index: z(overlay);
+ */
+
+@function z($key) {
+  @if map-has-key($z-layers, $key) {
+    @return map-get($z-layers, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $z-layers.";
+  @return null;
+}

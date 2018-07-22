@@ -1,0 +1,114 @@
+/**
+ * cards Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-cards {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: $primary-color;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+  }
+
+  .ll-cards__title,
+  .ll-cards__card {
+    display: inline-flex;
+    flex: 0 1 auto;
+    width: 25%;
+  }
+
+  .ll-cards__card {
+    flex-direction: column;
+    max-width: calc(236px);
+    height: 100%;
+    max-height: 409px;
+    justify-content: start;
+    margin: 13.5px;
+    padding: 22px;
+    border: solid 1px $secondary-color;
+    border-radius: 5px;
+    background-color: rgba($midnight, 0.85);
+    overflow: hidden;
+    clip: rect(0, 500px, 409px,0);
+
+    @include screen-md {
+      width: 100%;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: $secondary-color;
+
+      .ll-cards__card__icon {
+        display: none;
+      }
+
+      .ll-cards__card__button_field,
+      .ll-cards__card__description_text {
+        display: block;
+      }
+
+    }
+
+  }
+
+  .ll-cards__title {
+    max-width: 263px;
+    @include font-size(26);
+    color: $white;
+    line-height: 32px;
+    line-height: 1.23076923076923;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-align: left;
+  }
+
+  .ll-cards__card__title,
+  .ll-cards__card__icon {
+    margin-top: 120px;
+  }
+
+  .ll-cards__card__button_field,
+  .ll-cards__card__description_text {
+    display: none;
+  }
+
+  .ll-cards__card__title {
+    @include font-size(20);
+    font-weight: 600;
+    color: $white;
+    text-align: center;
+  }
+
+  .ll-cards__card__description_text {
+    color: $white;
+    p {
+      margin-bottom: 0;
+      @include font-size(16);
+      line-height: 23px;
+      line-height: 1.4375;
+    }
+  }
+
+  .ll-cards__card__button_field {
+    margin-top: 48px;
+    .btn {
+      padding: 16px 46px;
+      @include font-size(16);
+      line-height: 19px;
+      line-height: 1.1875;
+    }
+  }
+
+}

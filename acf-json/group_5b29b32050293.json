@@ -1,0 +1,122 @@
+{
+    "key": "group_5b29b32050293",
+    "title": "Left \/ Right Blocks",
+    "fields": [
+        {
+            "key": "field_5b29b320574b0",
+            "label": "Show Steps?",
+            "name": "lr_blocks_show_steps",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5b29b3205745f",
+            "label": "Content",
+            "name": "lr_blocks_content",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_5b29b32057550",
+            "label": "Background Image",
+            "name": "lr_blocks_background_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5b2d227658b78",
+            "label": "Video",
+            "name": "lr_blocks_video",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "templates\/template-home.php"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "templates\/template-form-template.php"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "templates\/template-contact.php"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "default"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "templates\/template-review.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1529943499
+}

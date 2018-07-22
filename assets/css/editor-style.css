@@ -1,0 +1,8 @@
+/**
+ * Import main.min.css for front styling of
+ * the wysiwyg
+ */
+@import 'main.min.css';
+body {
+  font-size: 14px !important;
+}

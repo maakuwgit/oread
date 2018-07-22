@@ -1,0 +1,59 @@
+/**
+ * Maps
+ *   1. z-index
+ *   2. Breakpoints
+ *   3. font-size
+ * _________________________________*/
+
+
+/**
+ * z-index
+ * _________________________________*/
+
+$z-layers: (
+  bottomless-pit: -9999,
+  default: 1,
+  overlay: 10,
+  overlay-content: 20,
+);
+
+
+/**
+ * Breakpoints
+ * _________________________________*/
+
+$breakpoints: (
+  xl:  $screen-xl-maximum,
+  lg:  $screen-lg-maximum,
+  md:  $screen-md-maximum,
+  sm:  $screen-sm-maximum,
+  xs:  $screen-xs-maximum,
+  xxs: $screen-xxs-maximum,
+);
+
+
+/**
+ * font-size
+ *
+ * Map
+ * $element: (
+ *   breakpoint: (font-size, line-height)
+ * );
+ *
+ * Element
+ * p {
+ *   @include font-size($p-fz);
+ * }
+ * _________________________________*/
+
+// <p> font sizes
+$p-fz: (
+  null: (18, 1.8),
+  md: (17, 1.7),
+  sm: 16,
+  xs: 14,
+);
+
+// <h1> font sizes
+$h1-fz: (
+);

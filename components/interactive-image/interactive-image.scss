@@ -1,0 +1,87 @@
+/**
+ * interactive-image Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-interactive-image {
+  flex-direction: column;
+
+  .interactive-image__images {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 75px auto;
+  }
+
+  .interactive-image__images__after {}
+
+  .interactive-image__images__before,
+  .interactive-image__images__after {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    img {
+      display: flex;
+      pointer-events: none;
+    }
+
+  }
+
+  .interactive-image__images__before,
+  .interactive-image__images__before img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .interactive-image__handle,
+  .interactive-image__track {
+    position: absolute;
+    z-index: 1;
+  }
+
+  .interactive-image__handle {
+    width: 24px;
+    margin-left: -12px;
+    background-color: $danger-background;
+    border-radius: 20px;
+    border: solid 2px $white;
+  }
+
+  .interactive-image__track {
+    top: 0;
+    left: 50%;
+    width: 3px;
+    margin-left: -1.5px;
+    background-color: $white;
+  }
+
+  .interactive-image__caption {
+    max-width: 515px;
+    margin: 204px auto 168px auto;
+    text-align: center;
+    color: $primary-color;
+
+    @include screen-md {
+      max-width: initial;
+    }
+
+    p {
+      @include font-size(16);
+      line-height: 28px;
+      line-height: 1.75;
+    }
+  }
+
+}

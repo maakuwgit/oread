@@ -1,0 +1,161 @@
+/**
+ * hero-w-slider Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-hero-w-slider {
+  flex-direction: column;
+  @extend %parallax-bg;
+
+  .hero__slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .hero__slides__slide,
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+  .container {
+    position: relative;
+  }
+
+  .hero__slides__slide {
+    position: absolute !important;//Otherwise Slick makes it relative and it disappears into the overflow
+    left: 0 !important;//Else Slick forces it left -1* the width of the slide
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    @include screen-md {
+      background-size: auto 100%;
+      background-position: center;
+    }
+  }
+
+  .hero__slick-prev,
+  .hero__slick-next {
+    position: absolute;
+    top: 50vh;
+    z-index: 1;
+    width: 42px;
+    height: 42px;
+    border-radius: 200px;
+    line-height: 0;
+    padding: 0;
+    fill: $danger-background;
+    background-color: rgba($white, 0.65);
+
+    &:hover {
+      background-color: $white;
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      fill: $danger-background;
+      stroke: $danger-background;
+      stroke-width: 1px;
+    }
+
+  }
+
+  .slick-track, .slick-list {
+    height: inherit;
+  }
+
+  .hero__slick-prev {
+    left: 72px;
+
+    .icon {
+      transform: rotate(180deg);
+    }
+
+  }
+
+  .hero__slick-next {
+    right: 72px;
+  }
+
+  .hero__section_title__container {
+    position: absolute;
+    top: 90px;
+  }
+
+  .hero__section_title {
+    max-width: 350px;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 45px;
+    margin-left: 0;
+    @include font-size(16);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+
+  &:first-child {
+    .hero__section_title__container {
+      top: 142px;
+    }
+  }
+
+  .hero__page_title {
+    display: inline-flex;
+    margin: auto auto 33px auto;
+    @include font-size(45);
+    font-weight: 500;
+    line-height: 55px;
+    line-height: 1.22222222222222;
+
+    &.big {
+      @include font-size(116);
+      line-height: 141px;
+      line-height: 1.21551724137931;
+    }
+
+  }
+
+  .hero__main_heading {
+    margin-bottom: 56px;
+    @include font-size(26);
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+  }
+
+  .hero__content {
+
+    * {
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 50px;
+      @include font-size(16);
+      line-height: 28px;
+      line-height: 1.75;
+      &.large {
+        @extend %text-large;
+      }
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+
+  }
+}

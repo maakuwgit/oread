@@ -1,0 +1,135 @@
+/**
+ * item-grid Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-item-grid {
+  display: flex;
+  justify-content: center;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    color: $grey;
+  }
+
+  .ll-item-grid__image {
+    position: relative;
+    width: 100%;
+    background-color: $primary-color;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    height: calc(33vw - 60px);
+    min-height: 325px;
+    max-height: 40vh;
+
+    @include screen-md {
+      min-height: initial;
+      max-height: 325px;
+      background-size: auto 100%, auto 100%;
+    }
+
+    .ll-item-grid__image__wrapper {
+      position: absolute;
+      overflow: hidden;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      img {
+        position: absolute;
+        width: 100%;
+        max-width: initial;
+        height: auto;
+        left: 0;
+        right: 0;
+      }
+
+      &:hover {
+
+        img {
+          opacity: 0;
+        }
+
+      }
+
+    }
+
+  }
+
+  .ll-item-grid__content {
+    text-align: left;
+
+    h1,h2,h3,h4,h5,h6 {
+      margin-left: 0;
+
+      &:first-child {
+        margin-top: 29px;
+      }
+
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    p, ul {
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+    }
+
+    ul {
+      list-style: none;
+    }
+
+  }
+
+  .ll-item-grid-items {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 131px;
+  }
+
+  .ll-item-grid-item {
+    display: inline-flex;
+    flex-direction: column;
+    width: 33%;
+    padding: $grid-gutter-width $grid-gutter-width 0 0;
+    flex: 0 0.33 auto;
+  }
+
+  .ll-item-grid__title {
+    @include font-size(45);
+    line-height: 55px;
+    line-height: 1.22222222222222;
+  }
+
+  .ll-item-grid__content__main_caption {
+    margin-top: 22px;
+    margin-bottom: 5px;
+    @include font-size(22);
+    font-weight: normal;
+    line-height: 27px;
+    line-height: 1.22727272727273;
+  }
+
+  .ll-item-grid__content__sub_caption {
+    @include font-size(15);
+    font-weight: 300;
+    line-height: 28px;
+    line-height: 1.86666666666667;
+  }
+}

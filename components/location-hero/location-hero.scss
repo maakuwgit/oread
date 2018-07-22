@@ -1,0 +1,139 @@
+/**
+ * location_hero Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-location-hero {
+  flex-direction: column;
+
+  .container {
+    height: inherit;
+  }
+
+
+  .location__section_title__container {
+    position: absolute;
+    top: 90px;
+  }
+
+  .location__section_title {
+    max-width: 350px;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 45px;
+    margin-left: 0;
+    @include font-size(16);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+
+  &:first-child {
+    .location__section_title__container {
+      top: 142px;
+    }
+  }
+
+  .location__page_title {
+    margin-top: 235px;
+
+    @include screen-md {
+      margin-top: 125px;
+    }
+    
+    @include font-size(45);
+    font-weight: 500;
+    line-height: 55px;
+  }
+
+  .location__main_heading {
+    @include font-size(26);
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+  }
+
+  .location__nav,
+  .location__details {
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: $white;
+    z-index: 1;
+  }
+
+  .location__details {
+    a {
+      color: currentColor;
+    }
+
+    a,
+    p,
+    address {
+      @include font-size(15);
+      font-weight: 300;
+      font-style: normal;
+      line-height: 32px;
+    }
+
+  }
+
+  .location__details__header {
+    @include font-size(18);
+    line-height: 19px;
+    line-height: 1.05555555555556;
+    font-weight: 300;
+    letter-spacing: 3.38px;
+  }
+
+  .location__nav {
+    margin-top: 51px;
+    margin-bottom: 61px;
+
+    a {
+      display: block;
+      width: calc(50% - 23px);
+      margin: auto 23px;
+      padding-left: 25px;
+      padding-right: 25px;
+      @include font-size(16);
+      font-weight: 300;
+
+      &:first-of-type {
+        margin-left: auto;
+      }
+
+      &:last-of-type {
+        margin-right: auto;
+      }
+
+    }
+
+  }
+  .location__details_column {
+    display: block;
+    width: calc(50% - 23px);
+    margin: 0 23px auto 23px;
+    padding-left: 25px;
+    padding-right: 25px;
+    @include font-size(16);
+    font-weight: 300;
+
+    &:first-of-type {
+      margin-left: auto;
+    }
+
+    &:last-of-type {
+      margin-right: auto;
+    }
+
+  }
+
+}

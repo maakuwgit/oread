@@ -1,0 +1,12 @@
+.ll-Button {
+  border: 3px solid turquoise;
+  background-color: white;
+  color: turquoise;
+  border-spacing: 0;
+  transition: transform 0.35s ease-out;
+  outline: none !important;
+
+  &--rotate {
+    transform: rotate(-180deg);
+  }
+}

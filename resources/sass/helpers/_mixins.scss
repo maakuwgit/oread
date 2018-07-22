@@ -1,0 +1,144 @@
+/**
+ * Mixins
+ */
+
+/**
+ * Font size mixin
+ *
+ * Example uses:
+ *
+ * Number:
+ * @include font-size(14);
+ * Converts font-size number to px and rem units
+ *
+ * Map:
+ @ @include font-size($h1-font-sizes)
+ * Sets font-size values (and optionally line-height values)
+ * for each breakpoint value
+ */
+@mixin font-size($map, $breaks: $breakpoints) {
+  // If only number is passed
+  @if type-of($map) == "number" {
+    @include make-font-size($map);
+  }
+  @else {
+    @each $break, $font-size in $map {
+      @if $break == null {
+        @include make-font-size($font-size);
+      }
+      @else {
+        // If $font-size is a key that exists in
+        // $breaks, use the value
+        @if map-has-key($breaks, $break) {
+          $break: map-get($breaks, $break);
+        }
+        @media (max-width: $break) {
+          @include make-font-size($font-size);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Utility function for mixin font-size
+ */
+@mixin make-font-size($font-size) {
+  // If $font-size is a list, include both font-size and line-height
+  @if type-of($font-size) == "list" {
+    // font-size and line-height vars
+    $size: nth($font-size, 1);
+    $height: nth($font-size, 2);
+    // set the sizes
+    font-size: $size + px;
+    font-size: ($size / 10) + rem;
+    @if (length($font-size) > 1) {
+      line-height: $height;
+    }
+  }
+  // If is number
+  @else if type-of($font-size) == "number" {
+    font-size: ($font-size) + px;
+    font-size: ($font-size / 10) + rem;
+  }
+}
+
+/**
+ * Background opacity
+ */
+@mixin bg-opacity($color, $opacity: 0.3) {
+  background: $color; /* The Fallback */
+  background: rgba($color, $opacity);
+}
+
+// Centered container element
+@mixin container-fixed($gutter: $grid-gutter-width) {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left:  floor(($gutter / 2));
+  padding-right: ceil(($gutter / 2));
+  *zoom: 1;
+}
+
+/**
+ * Placeholders
+ */
+@mixin placeholder-text {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    @content;
+  }
+  &::-moz-placeholder {  /* Firefox 19+ */
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+/**
+ * Breakpoints
+ */
+@mixin screen-xl {
+  @media (max-width: $screen-xl-maximum) {
+    @content;
+  }
+}
+
+@mixin screen-lg {
+  @media (max-width: $screen-lg-maximum) {
+    @content;
+  }
+}
+
+@mixin screen-md {
+  @media (max-width: $screen-md-maximum) {
+    @content;
+  }
+}
+
+@mixin screen-sm {
+  @media (max-width: $screen-sm-maximum) {
+    @content;
+  }
+}
+
+@mixin screen-xs {
+  @media (max-width: $screen-xs-maximum) {
+    @content;
+  }
+}
+
+@mixin screen-xxs {
+  @media (max-width: $screen-xxs-maximum) {
+    @content;
+  }
+}
+
+@mixin screen-nav-mobile {
+  @media (max-width: $screen-nav-mobile) {
+    @content;
+  }
+}

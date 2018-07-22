@@ -1,0 +1,85 @@
+/**
+ * image-grid Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-image-grid {
+  display: flex;
+  justify-content: center;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    color: $grey;
+  }
+
+  .ll-image-grid__image {
+    position: relative;
+    width: 100%;
+    background-color: $primary-color;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: calc(33vw - 60px);
+    max-height: 33vh;
+
+    @include screen-md {
+      background-size: auto 100%, auto 100%;
+    }
+
+    img {
+      opacity: 0;
+    }
+
+  }
+
+  .ll-image-grid__items {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc( 83.3334% + #{$grid-gutter-width} );
+    margin-top: 0;
+    margin-right: calc( 8.3334% - #{$grid-gutter-width/2} );
+    margin-bottom: 78px;
+    margin-left: calc( 8.3334% - #{$grid-gutter-width/2} );
+  }
+
+  .ll-image-grid__item {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0.33 auto;
+    width: calc( 33.3334% - #{$grid-gutter-width} );
+    margin-right: $grid-gutter-width/2;
+    margin-left: $grid-gutter-width/2;
+    text-align: center;
+  }
+
+  .ll-image-grid__title {
+    margin-top: 117px;
+    margin-bottom: 42px;
+    @include font-size(26);
+    font-weight: normal;
+    letter-spacing: 5px;
+    line-height: 32px;
+    line-height: 1.22222222222222;
+    text-transform: uppercase;
+  }
+
+  .ll-image-grid__content {
+    width: 100%;
+  }
+
+  .ll-image-grid__content__caption {
+    @include font-size(16);
+    color: $grey;
+    line-height: 28px;
+    line-height: 1.75;
+    font-weight: normal;
+  }
+}

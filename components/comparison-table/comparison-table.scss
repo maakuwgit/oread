@@ -1,0 +1,79 @@
+/**
+ * comparison-table Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-comparison-table {
+  display: flex;
+  justify-content: center;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: 128px;
+  }
+
+  .ll-comparison-table__table {
+    width: calc( 50% - ( #{$grid-gutter-width}/2 ) );
+    margin-left: 0;
+    margin-right: $grid-gutter-width/2;
+    color: $grey;
+
+    &:nth-of-type(even) {
+      margin-right: 0;
+      margin-left: $grid-gutter-width/2;
+    }
+
+    .ll-comparison-table__table__row {
+
+      .ll-comparison-table__table__cell {
+        background-color: rgba($ivory, 0.48);
+      }
+
+      &:nth-of-type(even) .ll-comparison-table__table__cell {
+        background-color: rgba($ivory, 0.27);
+      }
+
+    }
+
+  }
+
+  .ll-comparison-table__vs {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    width: 65px;
+    margin-left: -31.5px;
+    color: $grey;
+  }
+
+  .ll-comparison-table__vs,
+  .ll-comparison-table__title__cell {
+    padding-bottom: 33px;
+    @include font-size(26);
+    font-weight: 500;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    line-height: 32px;
+    line-height: 1.23076923076923;
+    background-color: transparent;
+  }
+
+  .ll-comparison-table__table__cell {
+    padding-top: 23px;
+    padding-bottom: 23px;
+    border-bottom: solid 1px $white;
+    @include font-size(15);
+    line-height: 25px;
+    line-height: 1.66666666666667;
+  }
+}

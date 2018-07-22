@@ -1,0 +1,41 @@
+# Include your project-specific ignores in this file
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+
+########################
+# Theme specific files #
+########################
+.sass-cache
+assets/vendor/*
+config.json
+node_modules
+
+######################
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+#############
+# Log files #
+#############
+[Ll]ogs/
+
+###########################
+# Include bootstrap fonts #
+###########################
+!assets/vendor/bootstrap-sass
+
+assets/vendor/bootstrap-sass/*
+!assets/vendor/bootstrap-sass/assets
+
+assets/vendor/bootstrap-sass/assets/*
+!assets/vendor/bootstrap-sass/assets/fonts
+
+assets/vendor/bootstrap-sass/assets/fonts/*
+!assets/vendor/bootstrap-sass/assets/fonts/bootstrap
+/resources/vendor

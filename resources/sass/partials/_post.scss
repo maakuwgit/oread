@@ -1,0 +1,133 @@
+/**
+ * Post
+ *   Used on single post pages
+ */
+
+.post {
+
+  .entry__header__categories,
+  .entry__header__author,
+  .entry__header__time {
+    font-weight: 300;
+    @include font-size(22);
+    line-height: 27px;
+    line-height: 1.22727272727273;
+    z-index: 1;
+  }
+
+  .entry__header__categories,
+  .entry__header__author {
+    display: flex;
+
+    &:before {
+      content: '|';
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+
+  }
+
+  .entry__meta__wrapper {
+    margin-top: 86px;
+  }
+
+  .breadcrumbs {
+    margin-top: 57px;
+    margin-bottom: 40px;
+
+    ul {
+      list-style: none;
+      display: inline-flex;
+    }
+
+    a {
+      color: currentColor;
+      &:hover {
+        color: $secondary-color;
+      }
+
+    }
+
+  }
+
+}
+
+.post__header {
+  min-height: 100vh;
+  color: $white;
+
+  @include screen-md {
+    background-size: auto 100%;
+  }
+
+}
+
+.post__header__title {
+  @include font-size(45);
+  line-height: 55px;
+  line-height: 1.222222222222222;
+  font-weight: 500;
+}
+
+.post__content {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 105px;
+
+  h2, h3, h4, h5, h6, p, li, time {
+    color: $grey;
+  }
+
+  > p {
+    margin-top: 42px;
+    margin-bottom: 42px;
+    @include font-size(18);
+    line-height: 33px;
+    line-height: 1.83333333333333;
+  }
+
+  blockquote {
+
+    position: relative;
+    @include font-size(20);
+    color: $primary-color;
+    line-height: 35px;
+    line-height: 1.75;
+
+    p {
+      max-width: calc(100% - 100px);
+      margin-right: 0;
+      margin-left: auto;
+      font-size: inherit;
+      color: currentColor;
+      line-height: inherit;
+    }
+
+    &:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '“';
+      width: 100px;
+      color: $danger-background;
+      @include font-size(200);
+      line-height: 244px;
+      line-height: 1.22;
+    }
+
+  }
+
+}
+
+.post__footer {
+  display: none;
+}
+
+.post__footer__nav {
+
+}
+
+.posts__comments {
+
+}

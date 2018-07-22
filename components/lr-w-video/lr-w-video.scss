@@ -1,0 +1,144 @@
+/**
+ * lr_w_video Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-lr-w-video {
+  height: calc( 41.66667vw - #{$grid-gutter-width * 2} );
+  max-height: 50vh;
+  display: flex;
+  justify-content: center;
+  margin-top: 107px;
+  margin-bottom: 106px;
+
+  &.left {
+    .ll-lr-w-video__content {
+      order: 2;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;;
+    justify-content: flex-start;
+    align-content: stretch;
+    color: $grey;
+  }
+
+  .ll-lr-w-video__image,
+  .ll-lr-w-video__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-right: 8.33334%;
+    max-width: 41.66667%;
+    flex: 0 0.4166667 auto;
+  }
+
+  .ll-lr-w-video__image {
+    position: relative;
+    cursor: pointer;
+    background-color: $primary-color;
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: cover;
+
+    @include screen-md {
+      background-size: auto 100%, auto 100%;
+    }
+
+    &:before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 0;
+      content: '';
+      background-color: rgba($black, 0.35);
+    }
+
+    img {
+      opacity: 0;
+    }
+
+    &:hover {
+
+      img {
+        opacity: 0;
+      }
+
+    }
+
+  }
+
+  .ll-lr-w-video__content {
+    max-width: 33.33334%;
+    flex: 0 0.33 auto;
+    margin-left: 8.33334%;
+    text-align: left;
+
+    h1,h2,h3,h4,h5,h6 {
+      margin-left: 0;
+
+      &:first-child {
+        margin-top: 29px;
+      }
+
+    }
+
+    p {
+      @include font-size(16);
+      line-height: 28px;
+      line-height: 1.75;
+    }
+
+    p, ul {
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .btn {
+      margin-top: 47px;
+    }
+  }
+
+  .ll-lr-w-video__image__cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    color: white;
+    @include font-size(16);
+    text-transform: uppercase;
+    line-height: 21px;
+    line-height: 1.3125;
+    letter-spacing: 3px;
+    text-align: center;
+
+    .icon {
+      display: block;
+      width: 60px;
+      height: 60px;
+      margin-bottom: 41px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+  }
+
+}

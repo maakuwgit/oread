@@ -1,0 +1,168 @@
+/**
+ * Footer styles
+ */
+
+/*
+ * --COMMENT--
+ * See comments in hero-banner.scss
+ * about selector spacing and type property values
+ */
+
+.footer {
+  padding-top: 101px;
+  padding-bottom: 67px;
+  color: $white;
+  background-color: $midnight;
+
+  a {
+    color: $white;
+
+    &:hover {
+      color: $secondary-color;
+    }
+
+  }
+
+  .footer__headline,
+  .gform_title {
+    margin-bottom: 5px;
+    @include font-size(22);
+    line-height: 27px;
+    line-height: 1.22727272727273;
+    font-weight: normal;
+  }
+
+  ul.nav {
+    list-style: none;
+    color: $white;
+
+    li {
+      color: currentColor;
+
+      a {
+        @include font-size(15);
+        line-height: 28px;
+        line-height: 1.86666666666667;
+      }
+
+    }
+
+  }
+
+  .logo__brand {
+    margin-bottom: 55px;
+
+    &:hover {
+      .logo__vector__text use[fill="#FFFFFF"] {
+        fill: $secondary-color;
+      }
+
+    }
+
+  }
+
+}
+
+.footer__top {
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+}
+
+.footer__logo {
+}
+
+.footer__footer-nav {
+  padding-bottom: 90px;
+}
+
+.footer__bottom {
+
+  .row {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+}
+
+.footer__credits {
+  text-align: right;
+}
+
+.footer__newsletter {
+  padding-bottom: 8px;
+  border-bottom: 1px solid $aluminum;
+
+  .validation_error {
+    display: none;
+  }
+
+  .validation_message {
+    position: absolute;
+    top: 50px;
+    @include font-size(12);
+    color: $danger-background;
+  }
+
+  .gfield {
+    margin-bottom: auto;
+
+    label {
+      display: none;
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      padding: 10px 0;
+      @include font-size(15);
+      background: transparent;
+
+      &[aria-invalid="true"] {
+        padding-left: 14px;
+        background-color: rgba($danger-background, 0.45);
+      }
+
+    }
+
+  }
+
+  .gform_body {
+    margin-top: 25px;
+  }
+
+  .gform_footer {
+    position: absolute;
+    right: 32px;
+    height: 47px;
+    margin-top: -43px;
+    margin-bottom: 0;
+  }
+
+  input[type="submit"] {
+    appearance: none;
+    border: none;
+    width: 32px;
+    height: 100%;
+    font-size: 0;
+    background: transparent url('../img/svg/chevron-right.svg') center right no-repeat;
+    background-size: 14px;
+  }
+
+}
+
+.footer__credits,
+.footer__copyright,
+.footer__social,
+.footer__newsletter {
+  flex: 0 1 auto;
+
+  @include screen-sm {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+}

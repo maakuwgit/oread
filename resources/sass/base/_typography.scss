@@ -1,0 +1,147 @@
+/**
+ * Typography
+ */
+
+@font-face {
+  font-family: 'montserrat';
+  src: url('../fonts/montserrat-light-webfont.woff2') format('woff2'),
+  url('../fonts/montserrat-light-webfont.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'montserrat';
+  src: url('../fonts/montserrat-regular-webfont.woff2') format('woff2'),
+  url('../fonts/montserrat-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'montserrat';
+  src: url('../fonts/montserrat-semibold-webfont.woff2') format('woff2'),
+  url('../fonts/montserrat-semibold-webfont.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+// Sans serif classe
+%sans-serif {
+  font-family: 'montserrat', Arial, sans-serif;
+}
+
+.montserrat {
+  @extend %sans-serif;
+}
+
+a {
+  color: $link-color;
+  text-decoration: $link-hover-decoration;
+  transition: all 0.10s ease-in-out;
+
+  &:hover {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+}
+
+button {
+  transition: all 0.10s ease-in-out;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+code {
+  white-space: normal;
+}
+
+h1,.h1, h2, .h2, h3,.h3, h4, .h4, h5, .h5, h6, .h6 {
+  margin: 0.5em auto;
+  line-height: 1.2;
+}
+
+h1,
+.h1 {
+  @include font-size(16);
+  line-height: 19px;
+  line-height: 1.1875;
+}
+
+h2,
+.h2 {
+  @include font-size(30);
+  line-height: 29px;
+  line-height: 0.96666666666667;
+}
+
+h3,
+.h3 {
+  @include font-size(26);
+  line-height: 32px;
+  line-height: 1.23076923076923;
+}
+
+h4,
+.h4 {
+  @include font-size(45);
+  line-height: 55px;
+  line-height: 1.22222222222222;
+}
+
+h5,
+.h5 {
+  @include font-size(36);
+  line-height: 39px;
+  line-height: 1.08333333333333;
+}
+
+h6,
+.h6 {
+  @include font-size(22);
+  line-height: 27px;
+  line-height: 1.22727272727273;
+}
+
+p {
+  @include font-size(15);
+  line-height: 19px;
+  line-height: 1.26666666666667;
+  &.large {
+    @extend %text-large;
+  }
+}
+
+li {
+  @include font-size(15);
+  line-height: 23px;
+  line-height: 1.53333333333333;
+}
+
+%hero {
+  @include font-size(45);
+  font-weight: 500;
+  line-height: 55px;
+  line-height: 1.22222222222222;
+}
+
+%big {
+  @extend %hero;
+  @include font-size(116);
+  line-height: 141px;
+  line-height: 1.21551724137931;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd {
+  &.hero {
+    @extend %hero;
+
+    &.big {
+      @extend %big;
+    }
+
+  }
+}

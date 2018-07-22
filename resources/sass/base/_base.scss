@@ -1,0 +1,74 @@
+/**
+ * Base styles
+ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: $text-dark;
+  background-color: white;
+  font-family: 'montserrat', Arial, sans-serif;
+  @include font-size(16);
+  font-weight: 300;
+  line-height: 1.4;
+
+  /**
+   * Set after content to use for easily checking
+   * mobile or desktop state. Hidden from view and
+   * screen readers because it's purely for javascript.
+   * Check app.js for more info
+   */
+  &::after {
+    content: 'desktop';
+    display: none;
+
+    @include screen-nav-mobile {
+      content: 'mobile';
+    }
+  }
+}
+
+address {
+  font-style: normal;
+}
+
+main {
+  counter-reset: lrindex;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+::selection {
+  text-shadow: none;
+  color: $selection;
+  background: $selection-bg;
+}
+
+::-moz-selection {
+  text-shadow: none;
+  color: $selection;
+  background: $selection-bg;
+}
+/* Dev Note: do NOT stack placeholders, lest they cease to work */
+::-webkit-input-placeholder {
+  color: $white;
+}
+::-moz-placeholder {
+  color: $white;
+}
+:-ms-input-placeholder {
+  color: $white;
+}
+:-moz-placeholder {
+  color: $white;
+}

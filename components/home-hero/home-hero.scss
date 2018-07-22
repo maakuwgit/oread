@@ -1,0 +1,85 @@
+/**
+ * home_hero Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-home-hero {
+  flex-direction: column;
+  @extend %parallax-bg;
+
+  .container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: inherit;
+  }
+
+  .hero__section_title {
+    @include font-size(45);
+    line-height: 27px;
+    line-height: 0.6;
+  }
+
+
+  .hero__page_title__wrapper {
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  .hero__page_title {
+    position: absolute;
+    margin: auto;
+    @include font-size(116);
+    font-weight: 500;
+    line-height: 141px;
+    line-height: 1.21551724137931;
+    &:nth-of-type(n+2) {
+      clip: rect(0,0,141px,0);
+    }
+  }
+
+  .hero__main_heading {
+    @include font-size(26);
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+  }
+
+  .hero__content {
+    * {
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .play-video-button {
+    position: absolute;
+    bottom: 90px;
+    left: 50%;
+    right: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 84px;
+    height: 84px;
+    padding: 8px;
+    border: solid 2px $white;
+    border-radius: 200px;
+    @include font-size(18);
+    line-height: 1;
+    letter-spacing: 3px;
+    font-weight: normal;
+    color: $white;
+    text-indent: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: transparent;
+  }
+}

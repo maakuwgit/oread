@@ -1,0 +1,93 @@
+/**
+ * location-grid Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-location-grid {
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  > .container {
+    margin-top: 88px;
+    margin-bottom: 125px;
+  }
+
+  .ll-location-grid__title,
+  .ll-location-grid__sub_title {
+    color: $primary-color;
+  }
+
+  .ll-location-grid__locations {
+    order: 3;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: 8.33334%;
+    margin-left: 8.33334%;
+  }
+
+  .ll-location-grid__location {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0.33 auto;
+    width: 33.3334%;
+    text-align: left;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @include screen-sm {
+      width: auto;
+      flex: initial;
+      margin-bottom: 73px;
+    }
+
+    a[href^="tel:"] {
+      cursor: initial;
+      color: currentColor;
+    }
+
+  }
+
+  .ll-location-grid__location__title {
+    margin-bottom: 17px;
+    @include font-size(22);
+    line-height: 27px;
+    line-height: 1.22727272727273;
+    margin-left: 0;
+    font-weight: 300;
+    color: $primary-color;
+  }
+
+  .ll-location-grid__location__address,
+  .ll-location-grid__location__phone {
+    @include font-size(15);
+    line-height: 28px;
+    color: $grey;
+  }
+
+  .ll-location-grid__location__phone {
+    margin-bottom: 38px;
+  }
+
+  .ll-location-grid__title {
+    margin-bottom: 83px;
+    @include font-size(45);
+    line-height: 55px;
+    line-height: 1.22222222222222;
+    order: 2;
+  }
+
+  .ll-location-grid__sub_title {
+    @include font-size(16);
+    font-weight: 300;
+    line-height: 19px;
+    line-height: 1.1875;
+    order: 1;
+  }
+}

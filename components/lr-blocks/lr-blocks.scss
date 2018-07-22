@@ -1,0 +1,169 @@
+/**
+ * lr-blocks Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-lr-blocks {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  @extend %parallax-bg;
+
+  .ll-lr-block__index {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    margin-bottom: 58px;
+    border-radius: 200px;
+    border: solid 2px $white;
+    color: $white;
+    @include font-size(40);
+    text-align: center;
+    &:before {
+      counter-increment: lrindex;
+      content: counter(lrindex);
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    flex: 0 0.5 auto;
+    max-width: 50%;
+    margin-left: 0;
+    padding: 107px calc( 4.16666667% + ( #{$grid-gutter-width} * 2 ) );
+    color: $white;
+    background-color: $primary-color;
+  }
+
+  @include screen-sm {
+    background-size: auto 125%;
+    background-position-y: center !important;
+
+    .container {
+      flex: 0.5 1 auto;
+      max-width: initial;
+      max-height: 50%;
+      background-color: rgba($primary-color, 0.6);
+    }
+
+  }
+
+  .ll-lr-blocks__block {
+
+    h2 {
+      margin-bottom: 29px;
+    }
+
+    p, ul {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      @include font-size(16);
+      line-height: 28px;
+      line-height: 1.75;
+
+      &.large {
+        @extend %text-large;
+        line-height: 28px;
+        line-height: 1.75;
+      }
+
+    }
+
+  }
+
+  .ll-lr-blocks__image__cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: calc(25% - 100px);
+    top: calc(50% - 100px);
+    z-index: 1;
+    color: white;
+    @include font-size(16);
+    text-transform: uppercase;
+    line-height: 21px;
+    line-height: 1.3125;
+    letter-spacing: 3px;
+    text-align: center;
+
+    .icon {
+      display: block;
+      width: 60px;
+      height: 60px;
+      margin-bottom: 41px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &:hover {
+      color: $secondary-color;
+
+      .icon {
+        fill: $secondary-color;
+        stroke-color: $secondary-color;
+      }
+
+    }
+
+  }
+
+  + .ll-lr-blocks,
+  + .ll-lr-blocks + .ll-lr-blocks + .ll-lr-blocks {
+    background-position: center left;
+
+    body.admin-bar & {
+      background-position-y: 32px;
+    }
+
+    .container {
+      margin-right: 0;
+      margin-left: auto;
+      background-color: $danger-background;
+
+      @include screen-sm {
+        background-color: rgba($danger-background, 0.6);
+      }
+    }
+
+    + .ll-lr-blocks,
+    + .ll-lr-blocks + .ll-lr-blocks + .ll-lr-blocks {
+      background-position: center right;
+
+      body.admin-bar & {
+        background-position-y: 32px;
+      }
+
+      .container {
+        margin-right: auto;
+        margin-left: 0;
+        background-color: $primary-color;
+
+        @include screen-sm {
+          background-color: rgba($primary-color, 0.6);
+        }
+      }
+
+    }
+
+  }
+
+}

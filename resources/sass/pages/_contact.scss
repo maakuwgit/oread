@@ -1,0 +1,48 @@
+/**
+ * Contact
+ */
+
+.page-template-template-contact {
+
+  .form-skin {
+    display: flex;
+    background-color: $pine;
+
+    @include screen-md {
+      display: block;
+
+      > div {
+
+        &.form-skin__feature,
+        &.gform_wrapper {
+          width: 100%;
+        }
+
+      }
+
+    }
+
+    > div {
+      display: flex;
+      flex: 1 0.5 auto;
+      width: 50%;
+    }
+
+    form {
+      padding: 172px 73px 3em 70px;
+    }
+
+  }
+
+  .form-skin__feature {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
+
+    img {
+      opacity: 0;
+    }
+
+  }
+
+}

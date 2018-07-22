@@ -1,0 +1,64 @@
+{
+    "key": "group_5b2d4bc89b0ce",
+    "title": "Blog Hero",
+    "fields": [
+        {
+            "key": "field_5b2d4bc8a45cd",
+            "label": "Main Heading",
+            "name": "blog_hero_heading",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Welcome to the blog",
+            "placeholder": "Welcome to the blog",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5b2d4bc8a4791",
+            "label": "Spotlight Strength",
+            "name": "blog_spotlight_strength",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "0.4",
+            "placeholder": "0.4",
+            "prepend": "",
+            "append": "",
+            "min": 0,
+            "max": 1,
+            "step": "0.1"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "posts_page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1529695977
+}

@@ -1,0 +1,108 @@
+/**
+ * Button Styles
+ */
+%btn {
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 31px;
+  border: solid 1px $primary-color;
+  padding: 14px 50px;
+  @include font-size(18);
+  font-weight: normal;
+  color: $white;
+  line-height: 22px;
+  line-height: 1.22222222222222;
+  background-color: $primary-color;
+
+  &:hover, &:active, &:focus {
+    color: $white;
+    background-color: $danger-background;
+  }
+
+}
+
+%btn--download {
+
+  @extend %btn;
+  padding-right: 82px;
+  padding-left: 32px;
+  @include font-size(16);
+  line-height: 26px;
+  line-height: 1.625;
+  font-weight: 300;
+
+  &:after {
+    position: absolute;
+    right: 26px;
+    display: block;
+    content: '';
+    width: 20px;
+    height: 18px;
+    background: transparent url(../img/svg/download.svg) center no-repeat;
+  }
+
+}
+
+%btn--outlined {
+  @extend %btn;
+  border: solid 2px $danger-background;
+}
+
+%btn--secondary {
+  @extend %btn;
+
+  border-color: $danger-background;
+  background-color: $danger-background;
+
+  &:hover, &:active, &:focus {
+    border-color: $secondary-color;
+    background-color: $secondary-color;
+  }
+
+}
+
+%btn--dark-bg {
+  @extend %btn;
+  color: $primary-color;
+  border: solid 2px $white;
+  background-color: $white;
+
+  &.btn--secondary {
+    border-color: $danger-background;
+    background-color: $danger-background;
+
+    &:hover, &:active, &:focus {
+      border-color: $secondary-color;
+      background-color: $secondary-color;
+    }
+
+  }
+
+  &:hover, &:active, &:focus {
+    color: $danger-background;
+    background-color: $white;
+  }
+
+}
+
+.btn {
+  @extend %btn;
+
+  &.btn--download {
+    @extend %btn--download;
+  }
+
+  &.btn--outlined {
+    @extend %btn--outlined;
+  }
+
+  &.btn--secondary {
+    @extend %btn--secondary;
+  }
+
+  .dark-bg & {
+    @extend %btn--dark-bg;
+  }
+}

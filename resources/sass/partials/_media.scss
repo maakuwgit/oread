@@ -1,0 +1,22 @@
+/**
+ * Media object
+ * http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+ */
+
+.media {
+  display: flex;
+  align-items: flex-start;
+}
+
+.media__figure {
+  margin-right: 50px;
+
+  &:empty {
+    margin-right: 0;
+  }
+}
+
+.media__bd {
+  flex: 1 1 0%;
+}
+

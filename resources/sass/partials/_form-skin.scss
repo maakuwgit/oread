@@ -1,0 +1,710 @@
+/**
+ * Form skin
+ *   1. Disable Gravity Forms styling by selecting "No" for the "Output CSS"
+ *      option in the settings page
+ *   2. Include the class "form-skin" within the specific gravity form
+ *      for the styles to display properly. All classes used here other than any
+ *      specified modifier classes, are pulled directly from the html that
+ *      gravity forms outputs.
+ *   3. All inputs that aren't part of a complex group are full width by default
+ *      there are 3 availble width modifier classes to put in the backend
+ *
+ *      .gfield--half
+ *      .gfield--third
+ *      .gfield--fourth
+ *
+ *   4. Other available modifier classes
+ *
+ *      .inline-inputs //sets checkbox or radio inputs to an inline display
+ *      .show-label //to be used on a complex input type. This will show the top level label for that group
+ *      .js-range-slider //turns text input into a range slider
+ *      .alt-label //mainly for section based inputs like checkbox groups. Gives the main label an alternate look
+ */
+
+.form-skin {
+  position: relative;
+  margin: 0 auto;
+  color: $white;
+
+  .modal & {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  input[type="email"],
+  input[type="tel"],
+  input[type="text"],
+  select,
+  textarea {
+    display: block;
+    padding: 20px 33px 7px;
+    width: 100%;
+    min-height: 75px; //px height here to avoid inputs getting to short to click
+    border: 1px solid $primary-color;
+    border-radius: 5px;
+    @include font-size(16);
+    font-weight: normal;
+    color: $white;
+    line-height: 19px;
+    background-color: $primary-color;
+    transition: border-color 0.15s linear;
+
+    &:focus,
+    &:hover {
+      outline: none;
+      border-color: $danger-background;
+    }
+
+    &[aria-invalid="true"] {
+      color: $white;
+      background-color: rgba($danger-background, 0.45);
+      border-color: $danger-border;
+    }
+
+  }
+
+  /**
+   * hide default select styles, and add a custom arrow icon as
+   * a background image
+   */
+  select {
+    appearance: none;
+    padding-top: 14px;
+    padding-bottom: 12px;
+    background-image: url('../img/svg/chevron-down.svg');
+    background-repeat: no-repeat;
+    background-position: 99% center;
+  }
+
+    //hide default select arrow in IE
+  select::-ms-expand {
+    display: none;
+  }
+
+  /**
+   * limit the height of textareas because they're ugly
+   * when they're too big
+   */
+  textarea {
+    max-height: 10em;
+    resize: none;
+  }
+
+  input[type="submit"] {
+    @extend %btn--outlined;
+    background-color: transparent;
+  }
+
+  /**
+   * Gravity forms specific styles
+   */
+  .gform_heading {
+    margin-bottom: 45px;
+    .gform_title {
+      margin-bottom: 38px;
+      @include font-size(36);
+      font-weight: 500;
+      line-height: 42px;
+    }
+    .gform_description {
+      @include font-size(18);
+      line-height: 28px;
+      font-weight: 500;
+      a {
+        color: $cyan;
+        font-style: italic;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .gform_footer {
+    padding-top: 1.5em;
+  }
+
+  .gform_fields {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+    padding: 0;
+  }
+
+  .gform_page_footer {
+    padding-top: 1em;
+    text-align: center;
+  }
+
+  .gform_next_button,
+  .gform_previous_button {
+    display: inline-block;
+    border: none;
+    border-radius: 0;
+    margin: 0 2em;
+    padding: 1em 4em;
+    font-size: 1.15em;
+    color: white;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    background-color: $text-dark;
+    transition: background-color 0.15s linear;
+
+    & + input[type="submit"] {
+      display: inline-block;
+      width: auto;
+    }
+
+    &:hover {
+      background-color: $primary-color;
+    }
+  }
+
+
+  /**
+   * gfield li's base styles with default width and margins. The targeted span
+   * is for complex inputs like address. The inputs are wrapped in spans that act
+   * like gfield for the complex inputs.
+   */
+  .gfield,
+  .ginput_complex span {
+    display: flex;
+    position: relative;
+    flex: 1 1 auto;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+  }
+
+  /**
+   * width modifier classes
+   */
+  .gfield--half {
+    width: calc( 50% - 1em);
+
+    @include screen-sm {
+      width: calc( 100% - 1em );
+    }
+  }
+
+  .gfield--third {
+    width: calc( calc( 100% / 3 ) - 1em );
+  }
+
+  .gfield--fourth {
+    width: calc( 25% - 1em );
+  }
+
+  .ginput_container {
+    width: 100%;
+  }
+
+  /**
+   * Base styles for complex input containers. Set to flex box and extend margin's
+   * outward to account for extra margins that will get applied to inner span
+   * input containers. These will be applied to inputs like advanced name and
+   * address
+   */
+  .ginput_complex {
+    display: flex;
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+  }
+
+  /**
+   * absolutely position all labels that aren't
+   * top level labels of complex inputs
+   */
+  .gfield_label:not( .gfield_label_before_complex ),
+  .ginput_complex label {
+    position: absolute;
+    top: 8px;
+    left: 33px;
+    @include font-size(14);
+    font-weight: normal;
+    line-height: 28px;
+    color: $aluminum;
+  }
+
+  /**
+   * hide complex group labels that aren't children of .show-label for inputs
+   * like advanced name and advanced address
+   */
+  .gfield:not(.show-label) .gfield_label_before_complex {
+    @extend %visuallyhidden;
+  }
+
+  .show-label .gfield_label_before_complex {
+    position: relative;
+    display: inline-block;
+    padding: 0.5em 0;
+    margin-bottom: 1em;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0.15em;
+      background-color: $text-dark;
+    }
+  }
+
+  /**
+   * Default styles for advanced name input
+   * by setting the width to 50% but setting flex-grow and flex-shrink to 1 above,
+   * we allow the inputs to shrink to 3 columns if middle name is included, but
+   * stay at 50% width if only first and last name are inlcuded. Does NOT
+   * wrap by default
+   */
+  .ginput_container_name {
+
+    /**
+     * remove margin from spans to prevent doubling up on bottom gutter
+     */
+    span {
+      margin-bottom: 0;
+      width: calc( 50% - 1em );
+    }
+
+    .name_middle {
+      width: calc( 25% - 1em );
+    }
+  }
+
+  /**
+   * Default styles for address input. Use gravity forms classes to
+   * set widths of specific address fields
+   */
+  .ginput_container_address {
+    flex-wrap: wrap;
+
+    /**
+     * remove margin from last span to prevent doubling up bottom gutter
+     */
+    span:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .address_city,
+    .address_state {
+      width: calc( 37.5% - 1em );
+    }
+
+    .address_zip {
+      width: calc( 25% - 1em );
+    }
+  }
+
+  /**
+   * Default checkbox / radio input styles. Hide default input and make inputs
+   * display block 100% by default
+   */
+  .gfield_checkbox,
+  .gfield_radio {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+
+    li {
+      flex: 1 0.5 auto;
+      width: calc(50% - 1em);
+      margin-bottom: 2em;
+
+      &:nth-of-type(odd) {
+        margin-right: 1em;
+      }
+
+      &:nth-of-type(even) {
+        margin-left: 1em;
+      }
+
+      label {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 75px;
+        padding: 16px 19px 15px 19px;
+        border: solid 1px $primary-color;
+        border-radius: 5px;
+        text-align: center;
+        background-color: $primary-color;
+
+        &:before {
+          content: initial;
+        }
+
+      }
+
+    }
+
+    /**
+     * extend visuallyhidden rather than display: none to hide the input to
+     * allow the input to still be accessible by screen readers and keyboards
+     */
+    input {
+      @extend %visuallyhidden;
+
+      /**
+       * give the focused inputs label a style so keyboard users can tell
+       * which radio / checkbox is focused. Accessibility win
+       */
+      &:focus ~ label {
+        border: 1px solid black;
+      }
+
+    }
+
+    /**
+     * use pseudo elements on the label for the custom checkbox / radio icons.
+     * the ::before here is the base styles for those. The icons are set
+     * further down
+     */
+    label {
+      position: relative;
+      display: block;
+      padding: 0.15em;
+      border: 1px solid transparent; //this prevents the label from jumping when the border shows on focus
+      transition: border 0.15s linear;
+
+      &::before {
+        content: '';
+        position: relative;
+        top: -0.05em; //baseline offset for icon
+        display: inline-block;
+        width: 1.75em;
+        height: 1.75em;
+        margin-right: 0.25em;
+        vertical-align: middle;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+      }
+
+    }
+
+  }
+
+  /**
+   * modify checkbox / radio inputs to display in a 3 column
+   * inline layout
+   */
+  .inline-inputs {
+    li {
+      flex: 1 1 auto;
+      width: calc( 100% / 3 );
+
+      @include screen-sm {
+        width: 50%;
+      }
+
+      @include screen-xs {
+        width: 100%;
+      }
+    }
+  }
+
+  /**
+   * set the custom checked and unchecked icons for checkboxes
+   */
+  .gfield_checkbox {
+    input:checked ~ label {
+
+      &::before {
+        background-image: url('../img/svg/check_box.svg');
+        background-size: 75%;
+        background-position: center center;
+      }
+    }
+    label {
+
+      &::before {
+        margin-right: 0.75em;
+        background-image: url('../img/svg/check_box_outline_blank.svg');
+        background-color: $white;
+      }
+    }
+  }
+
+  .gfield_required {
+    display: none;
+  }
+
+  #field_1_7, #field_1_11 {
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: 8.333334%;
+
+    .gfield_label {
+      position: relative;
+      top: initial;
+      left: initial;
+      display: block;
+      width: 100%;
+      margin-bottom: 24px;
+      color: $white;
+      @include font-size(18);
+      line-height: 28px;
+    }
+
+  }
+
+  @include screen-md {
+
+    #field_1_7.gfield {
+      margin-top: auto;
+
+      > label.gfield_label{
+        margin-bottom: 24px;
+      }
+
+    }
+
+    #field_1_7, #field_1_11 {
+      margin-left: auto;
+    }
+
+  }
+
+  #field_1_7 {
+    margin-top: -72px;
+    margin-right: auto;
+    margin-left: 8.333334%;
+
+    @include screen-md {
+      margin-left: auto;
+    }
+
+    > label.gfield_label {
+      margin-bottom: 44px;
+    }
+
+  }
+
+  .alt-label {
+
+    .gfield_label {
+      position: relative;
+      top: initial;
+      left: initial;
+      display: block;
+      font-size: 1.07em;
+      text-align: center;
+      text-transform: none;
+      color: $text-dark;
+    }
+
+  }
+
+  /**
+   * set custom checked and unchecked icons for radio buttons
+   */
+  .gfield_radio {
+
+    input:checked ~ label {
+      border-color: $danger-background;
+    }
+
+  }
+
+  /**
+   * Styles for list type inputs. May have to be adjusted depending on number of
+   * columns needed. Right now it's set to be flexboxed. Works great for up to
+   * 4 columns. After that it get's kinda weird.
+   */
+
+  .gfield_list_container {
+    width: 100%;
+
+    tbody,
+    tr {
+      width: 100%;
+    }
+
+    thead {
+      display: none;
+    }
+
+    .gfield_list_group {
+      display: flex;
+      margin-bottom: 1em;
+      margin-left: -0.5em;
+      margin-right: -0.5em;
+
+      /**
+       * remove margin of last one to prevent doubling up bottom
+       * gutter space
+       */
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    .gfield_list_cell {
+      flex: 1 1 auto;
+      width: calc( 100% - 1em );
+      margin-right: 0.5em;
+      margin-left: 0.5em;
+      position: relative;
+
+      /**
+       * By default, the column cells don't have labels, however
+       * gravity forms gives them a data-label attribute that we can
+       * fake use on a pseudo element to fake the label. They aren't accessible
+       * and can't be clicked, but something is better than nothing
+       */
+      &::before {
+        content: attr(data-label);
+        position: absolute;
+        top: 1em;
+        left: 1em;
+        font-size: 0.8em;
+        letter-spacing: 0.18em;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+    }
+
+    /**
+     * set a hard width on the icons so they are always an appropriate
+     * width no matter how many columns there are
+     */
+    .gfield_list_icons {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      width: 2em;
+
+      img {
+        flex: 1 1 auto;
+
+        &:focus {
+          outline-color: black;
+          outline-width: 3px;
+        }
+      }
+
+    }
+
+  }
+
+}
+
+/**
+ * date picker provided by gravity forms date input
+ */
+.ui-datepicker {
+  @include font-size( 14 );
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 0 2px 2px rgba(black, 0.3);
+
+  table {
+    width: 100%;
+  }
+
+  a {
+    color: $text-dark;
+  }
+
+}
+
+/**
+ * This is the datepickers previous / next and the
+ * select box date selectors
+ */
+.ui-datepicker-header {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5em;
+}
+
+/**
+ * Flex the prev and next buttons for easy alignment. I ❤️ flexbox
+ */
+.ui-datepicker-prev,
+.ui-datepicker-next {
+  flex: 1 1 50%;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+}
+
+/**
+ * Give the previous button an arrow for decoration
+ */
+.ui-datepicker-prev {
+  text-align: left;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 2em;
+    height: 2em;
+    background-image: url('../img/svg/chevron-left.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+}
+
+/**
+ * Give the next button an arrow for decoration
+ */
+.ui-datepicker-next {
+  text-align: right;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 2em;
+    height: 2em;
+    background-image: url('../img/svg/chevron-right.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+}
+
+/**
+ * Deceiving name, this is actually the select box date pickers
+ */
+.ui-datepicker-title {
+  flex: 1 1 100%;
+  display: flex;
+
+  select {
+    flex: 1 1 50%;
+  }
+
+}
+
+/**
+ * This is the actually calendar display
+ */
+.ui-datepicker-calendar {
+  a {
+    display: block;
+    padding: 0.25em;
+
+    &:hover {
+      background-color: $primary-color;
+    }
+
+  }
+
+}
+

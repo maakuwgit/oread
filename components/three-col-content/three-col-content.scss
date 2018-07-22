@@ -1,0 +1,83 @@
+/**
+ * three-col-content Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-three-col-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin-top: 80px;
+  margin-bottom: 150px;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: stretch;
+  }
+
+  .ll-three-col-content__column__container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .ll-three-col-content__title {
+    margin-left: 0;
+    margin-bottom: 30px;
+    color: $grey;
+    @include font-size(26);
+    line-height: 32px;
+    line-height: 1.23076923076923;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+  }
+
+  .ll-three-col-content__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: flex-start;
+    flex: 0 0.33 auto;
+    max-width: 33.33333334%;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: $grey;
+
+    .ll-three-col-content__column__header {
+      margin-bottom: 31px;
+      margin-left: 0;
+      @include font-size(22);
+      line-height: 27px;
+      line-height: 1.22727272727273;
+      font-weight: 500;
+    }
+
+    p, ul {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      @include font-size(16);
+      line-height: 28px;
+      line-height: 1.75;
+      &.large {
+        @include font-size(18);
+        font-weight: 500;
+        line-height: 28px;
+        line-height: 1.55555555555556;
+      }
+    }
+
+  }
+}
+

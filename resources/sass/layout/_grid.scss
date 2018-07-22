@@ -1,0 +1,100 @@
+/**
+ *
+ * Grid styles
+ *
+ *
+ */
+
+.container {
+  position: relative;
+  @include container-fixed;
+
+  @media (min-width: $screen-sm-min) {
+    width: $container-sm;
+  }
+  @media (min-width: $screen-md-min) {
+    width: $container-md;
+  }
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row [class^=col-] {
+  flex: 0 0 auto;
+}
+
+.col-full {
+  width: 100%;
+  max-width: 100%;
+}
+
+@for $i from 2 through 12 {
+
+  @for $j from 1 through ($i - 1) {
+
+    .col-#{$j}of#{$i} {
+      width: 100% / $i * $j;
+      max-width: 100% / $i * $j;
+    }
+    .col-xl-#{$j}of#{$i} {
+      width: 100% / $i * $j;
+      max-width: 100% / $i * $j;
+      @include screen-xl {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+    .col-lg-#{$j}of#{$i} {
+      width: 100% / $i * $j;
+      max-width: 100% / $i * $j;
+      @include screen-lg {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+    .col-md-#{$j}of#{$i} {
+      width: 100% / $i * $j;
+      max-width: 100% / $i * $j;
+      @include screen-md {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+    .col-sm-#{$j}of#{$i} {
+      width: 100% / $i * $j;
+      max-width: 100% / $i * $j;
+      @include screen-sm {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+    .col-xs-#{$j}of#{$i} {
+      width: 100% / $i * $j;
+      max-width: 100% / $i * $j;
+      @include screen-xs {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+    .col-xxs-#{$j}of#{$i} {
+      width: 100% / $i * $j;
+      max-width: 100% / $i * $j;
+      @include screen-xxs {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+@for $o from 1 through 12 {
+  .col-offset-1of#{$o} {
+    margin-left: calc(100% / #{$o});
+  }
+}

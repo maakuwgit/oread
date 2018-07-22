@@ -1,0 +1,83 @@
+/**
+ * Heading styles
+ */
+
+/*
+ * --COMMENT--
+ * See comments in hero-banner.scss
+ * about selector spacing and type property values
+ */
+
+.hdg {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: calc(100vh - 124px);
+  min-height: 800px;
+  overflow: hidden;
+  background-size: cover;
+  background-color: $secondary-color;
+
+  .page-template-template-contact &,
+  .archive.category &,
+  .blog & {
+    margin-bottom: 32.5px;
+
+    h1 {
+      @include font-size(45);
+      font-weight: normal;
+      line-height: 55px;
+      line-height: 1.2222222222222;
+    }
+
+  }
+
+  .blog & {
+    .hdg__heading {
+      margin-top: 200px;
+    }
+  }
+
+  .hdg__heading,
+  .hdg__subheading,
+  .hdg__title,
+  .hdg__content,
+  .hdg__nav {
+    color: $white;
+    z-index: 1;
+  }
+
+  .hdg__nav {
+    margin-top: 225px;
+    margin-bottom: 70px;
+
+    a {
+      padding: 13px 30px;
+      border-radius: 31px;
+      @include font-size(14);
+      font-weight: 500;
+      color: $white;
+
+      &.active {
+        background-color: $danger-background;
+      }
+
+    }
+
+  }
+
+  &:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.6;
+    background: linear-gradient(0deg, $black 100%, rgba($black, 0) 100%),
+                radial-gradient(circle, $black 0%, $black 100%);
+  }
+
+}

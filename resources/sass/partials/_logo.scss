@@ -1,0 +1,28 @@
+/**
+ * Logo styles
+ */
+
+.logo {
+
+}
+
+.logo--header {
+
+}
+
+.logo__brand {
+  display: inline-flex;
+  flex-direction: column;
+  @include font-size( 32 );
+  color: $danger-background;
+  text-shadow: 0 2px 4px rgba($black, 0.5);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.logo__brand_tagline {
+  display: block;
+  font-weight: 500;
+  color: white;
+  text-shadow: 0 2px 4px rgba($black, 0.5);
+}

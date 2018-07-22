@@ -1,0 +1,121 @@
+/**
+ * Form Template
+ */
+
+/*
+ * --COMMENT--
+ * See comments in hero-banner.scss
+ * about selector spacing and type property values
+ *
+ * The amount of nth selectors here worries me. This seems like you're styling it
+ * in a way that the form is never going to change. What happens if someone edits the form?
+ * Are the styles going to still perform / behave in an expected way? Will the layout break?
+ *
+ */
+
+.page-template-template-form-template {
+
+  background-color: $pine;
+
+  .form-skin {
+    margin-bottom: 32.5px;
+    padding-top: 172px;
+    padding-bottom: 3em;
+    @include container-fixed;
+
+    @media (min-width: $screen-sm-min) {
+      width: $container-sm;
+    }
+
+    @media (min-width: $screen-md-min) {
+      width: $container-md;
+    }
+
+    @media (min-width: $screen-lg-min) {
+      width: $container-lg;
+    }
+
+    .gfield,
+    .ginput_complex span {
+      display: flex;
+      position: relative;
+      flex: 1 0.5 auto;
+      width: calc(41.666667% - 1em);
+      max-width: calc(41.666667% - 1em);
+      margin-bottom: 1em;
+      margin-right: 8.333334%;
+
+      @include screen-md {
+
+        &.gfield_visibility_visible {
+          width: calc( 100% - 1em );
+          max-width: calc( 100% - 1em );
+          &:first-of-type,
+          &:nth-of-type(2),
+          &:nth-of-type(3),
+          &:nth-of-type(4),
+          &:nth-of-type(5),
+          &:nth-of-type(6) {
+            order: initial;
+            margin-top: auto;
+            margin-right: auto;
+          }
+
+          &:nth-of-type(4){
+            width: calc( 100% - 1em );
+
+            .textarea {
+              width: 100%;
+              margin-bottom: 2em;
+            }
+
+          }
+
+        }
+
+      }
+
+      &:first-of-type {
+        order: 1;
+      }
+
+      &:nth-of-type(2){
+        order: 3;
+        margin-top: -136px;
+      }
+
+      &:nth-of-type(3){
+        order: 5;
+        margin-top: -190px;
+      }
+
+      &:nth-of-type(4){
+        order: 7;
+        width: 100%;
+        max-width: initial;
+        margin-top: -96px;
+
+        .textarea {
+          width: calc(41.666667% + 0.25em);
+          margin-right: 8.333334%;
+        }
+
+      }
+
+      &:nth-of-type(5){
+        order: 2;
+      }
+
+      &:nth-of-type(6){
+        order: 4;
+      }
+
+      &:nth-of-type(7n){
+        order: initial;
+      }
+
+    }
+
+  }
+
+}

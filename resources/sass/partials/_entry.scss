@@ -1,0 +1,126 @@
+/**
+ * Entry
+ *   Used on news/blog archive page
+ */
+
+.entry {
+
+  .archive.category &,
+  .blog & {
+
+    position: relative;
+    display: inline-flex;
+    flex: 0 0.3334 auto;
+    flex-direction: column;
+    height: 475px;
+    width: calc(33.3334% - 75px);
+    overflow: hidden;
+    margin: 32.5px 15px 32.5px 15px;
+    border-radius: 10px;
+    color: $grey;
+    background-color: $white;
+    box-shadow: 0 6px 52px 0 rgba(0,0,0,0.17);
+
+    &:nth-of-type(4n),
+    &:first-of-type {
+      margin-left: 75px;
+    }
+
+    &:nth-of-type(3n) {
+      margin-right: 75px;
+    }
+
+    .attachment-post-thumbnail {
+      position: absolute;
+      width: 100%;
+      clip: rect(0px 780px 200px 0px);
+      max-width: initial;
+      overflow: hidden;
+    }
+
+  }
+
+}
+
+.entry__header,
+.entry__summary,
+.entry__meta {
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+.entry__header,
+.entry__summary {
+
+  a {
+    color: currentColor;
+  }
+
+}
+
+.entry__header {
+  margin-top: 200px;
+}
+
+.entry__header__categories,
+.entry__header__author {
+  display: none;
+}
+
+.entry__header__time {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  @include font-size(18);
+  line-height: 19px;
+  line-height: 1.05555555555556;
+  text-transform: uppercase;
+}
+
+.entry__header__title {
+  margin-top: 20px;
+  margin-bottom: 25px;
+  @include font-size(24);
+  line-height: 29px;
+  line-height: 1.20833333333333;
+  font-weight: 500;
+}
+
+.entry__summary {
+  @include font-size(16);
+  line-height: 25px;
+  line-height: 0.64;
+  color: $lt-grey;
+
+  p {
+    margin-top: 0;
+  }
+
+}
+
+.entry__meta__wrapper {
+  display: flex;
+}
+
+.entry__meta_categories,
+.entry__meta_category,
+.entry__meta_tag {
+  display: inline-block;
+  @include font-size(14);
+  font-weight: 500;
+  line-height: 24px;
+  line-height: 1.71428571428571;
+
+  &:before {
+    content: '/';
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  &:first-of-type:before {
+    content: '';
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+}

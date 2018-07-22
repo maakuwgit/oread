@@ -1,0 +1,186 @@
+/**
+ * fancy-slider Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-fancy-slider {
+  flex-direction: column;
+
+  .fancy-slider__slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .fancy-slider__slides__slide,
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+  .container {
+    position: relative;
+  }
+
+  .fancy-slider__slides__slide {
+    position: absolute !important;//Otherwise Slick makes it relative and it disappears into the overflow
+    left: 0 !important;//Else Slick forces it left -1* the width of the slide
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+
+    &:after {
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: '';
+      opacity: 0.43;
+      background-color: #013249;
+    }
+
+    @include screen-md {
+      background-size: auto 100%;
+      background-position: center;
+    }
+
+  }
+
+  .fancy-slider__slick-next {
+    position: absolute;
+    bottom: 188px;
+    left: calc( 25% - 51px );
+    z-index: 1;
+    width: 51px;
+    height: 51px;
+    border: none;
+    border-radius: 200px;
+    line-height: 0;
+    padding: 0;
+    fill: $danger-background;
+    background-color: $danger-background;
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      fill: $white;
+      stroke: $white;
+      stroke-width: 0;
+    }
+
+  }
+
+  .slick-dots {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 8.3333334%;
+    bottom: 0;
+    list-style: none;
+    flex-direction: column;
+    justify-content: center;
+
+    button {
+      overflow: hidden;
+      width: 28px;
+      height: 28px;
+      border-radius: 200px;
+      border: none;
+      font-size: 0;
+      line-height: 0;
+      background-color: #fafafa;
+    }
+
+    li {
+      margin-top: 21px;
+      margin-bottom: 21px;
+      text-align: center;
+
+      &.slick-active {
+
+        button {
+          width: 44px;
+          height: 44px;
+          border: solid 8px white;
+          background-color: $primary-color;
+        }
+
+      }
+
+      &:hover {
+
+        button {
+          background-color: $secondary-color;
+        }
+
+      }
+
+      button {
+        transform-origin: center;
+      }
+
+    }
+
+  }
+
+  .slick-track, .slick-list {
+    position: relative;
+    z-index: 0;
+    height: inherit;
+  }
+
+  .fancy-slider__big_text {
+    max-width: 456px;
+    margin: auto auto 31px 25%;
+    @include font-size(46);
+    font-weight: 300;
+    line-height: 48px;
+    line-height: 1.04347826086957;
+
+    &:before {
+      content: '“';
+      position: absolute;
+      opacity: 0.6;
+      margin-left: -90px;
+      font-size: 200px;
+      line-height: 154px;
+    }
+
+  }
+
+  .fancy-slider__content {
+
+    * {
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    p {
+      margin-top: 0;
+      @include font-size(16);
+      line-height: 28px;
+      line-height: 1.75;
+      &.large {
+        @extend %text-large;
+      }
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+
+  }
+}
